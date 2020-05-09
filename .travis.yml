@@ -1,0 +1,14 @@
+language: c
+
+compiler:
+  - clang
+  - gcc
+
+os:
+  - linux
+  - osx
+
+script:
+  - cd src
+  - ./configure
+  - make

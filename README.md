@@ -1,10 +1,18 @@
 # Hydra 0.1.8
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/shrugly/hydra-0.1.8.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/shrugly/hydra-0.1.8/alerts/)
+[![Language grade: C/C++](https://img.shields.io/lgtm/grade/cpp/g/shrugly/hydra-0.1.8.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/shrugly/hydra-0.1.8/context:cpp)
+[![Build Status](https://travis-ci.org/shrugly/hydra-0.1.8.svg?branch=master)](https://travis-ci.org/shrugly/hydra-0.1.8)
 
 [Hydra](http://hydra.hellug.gr/) is a lightweight, multithreaded HTTP server which is occasionally still found in embedded firmware images for serving CGI scripts, files, and more. 0.1.8 is the last stable version, and was released [in 2006](http://hydra.hellug.gr/download/).
 
 ## Changes
 
 This repository contains Hydra 0.1.8. It should not be considered meaningfully enhanced from the original source.
+
+### Integrations
+
+- [LGTM](https://lgtm.com/) - performs QL-based quality and security checks on the main repository as well as any PRs to help identify & track security hotspots.
+- [Travis CI](https://travis-ci.org/) - builds Boa on Linux and macOS with GCC & Clang to ensure that changes don't immediately introduce quality issues.
 
 ## SHRuG Creed
 
