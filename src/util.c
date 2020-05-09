@@ -470,7 +470,7 @@ int boa_atoi(const char *s)
       }
       return retval;
    } else {
-      return -1
+      return -1;
    }
 }
 
