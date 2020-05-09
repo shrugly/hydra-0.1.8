@@ -453,21 +453,25 @@ int create_etag(unsigned long int size, unsigned long int mod_time,
 
 int boa_atoi(const char *s)
 {
-   int retval;
-   char reconv[22];
+   if (s) {
+      int retval;
+      char reconv[22];
 
-   if (!isdigit(*s))
-      return -1;
+      if (!isdigit(*s))
+         return -1;
 
-   retval = atoi(s);
-   if (retval < 0)
-      return -1;
+      retval = atoi(s);
+      if (retval < 0)
+         return -1;
 
-   simple_itoa(retval, reconv);
-   if (memcmp(s, reconv, strlen(s)) != 0) {
+      simple_itoa(retval, reconv);
+      if (memcmp(s, reconv, strlen(s)) != 0) {
+         return -1;
+      }
+      return retval;
+   } else {
       return -1;
    }
-   return retval;
 }
 
 off_t boa_atoll(const char *s)
