@@ -3,7 +3,7 @@
 [![Language grade: C/C++](https://img.shields.io/lgtm/grade/cpp/g/shrugly/hydra-0.1.8.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/shrugly/hydra-0.1.8/context:cpp)
 [![Build Status](https://travis-ci.org/shrugly/hydra-0.1.8.svg?branch=master)](https://travis-ci.org/shrugly/hydra-0.1.8)
 
-[Hydra](http://hydra.hellug.gr/) is a lightweight, multithreaded HTTP server based on [Boa](https://github.com/shrugly/boa-0.94.13) which is occasionally still found in embedded firmware images for serving CGI scripts, files, and more. 0.1.8 is the last stable version, and was released [in 2006](http://hydra.hellug.gr/download/).
+[Hydra](http://hydra.hellug.gr/) is a lightweight, multithreaded HTTP(S) server based on [Boa](https://github.com/shrugly/boa-0.94.13) which is occasionally still found in embedded firmware images for serving CGI scripts, files, and more. 0.1.8 is the last stable version, and was released [in 2006](http://hydra.hellug.gr/download/).
 
 ## Known Vulnerabilities
 
