@@ -11,3 +11,9 @@ os:
 script:
   - ./configure
   - make
+
+addons:
+  apt:
+    update: true
+    packages:
+      - libgnutls28-dev
