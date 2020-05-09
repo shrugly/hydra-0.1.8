@@ -7,11 +7,16 @@
 
 ## Known Vulnerabilities
 
-- [CVE-2019-17502](https://www.cvedetails.com/cve/CVE-2019-17502/) (not fixed) - Discovered by [Felix Blanco](https://github.com/fxb6476): Hydra through 0.1.8 has a NULL pointer dereference & daemon crash when processing POST requests that lack a 'Content-Length' header. Links: [disclosure](https://gist.github.com/fxb6476/0b9883a88ff2ca40de46a8469834e16c).
+### Fixed
+- [CVE-2019-17502](https://www.cvedetails.com/cve/CVE-2019-17502/) - Discovered by [Felix Blanco](https://github.com/fxb6476): Hydra through 0.1.8 has a NULL pointer dereference & daemon crash when processing POST requests that lack a 'Content-Length' header. Links: [disclosure](https://gist.github.com/fxb6476/0b9883a88ff2ca40de46a8469834e16c). Notes: a CWE for this was issued by `flawfinder` but other SAST tooling did not detect it.
 
 ## Changes
 
 This repository contains Hydra 0.1.8. It should not be considered meaningfully enhanced from the original source.
+
+### Code
+
+2020-05-09 - Fixed CVE-2019-17502, ref: [PR#1](https://github.com/shrugly/hydra-0.1.8/pull/1)
 
 ### Integrations
 
