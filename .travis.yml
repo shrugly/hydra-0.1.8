@@ -9,6 +9,5 @@ os:
   - osx
 
 script:
-  - cd src
   - ./configure
   - make
