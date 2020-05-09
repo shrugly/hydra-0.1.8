@@ -16,7 +16,7 @@ This repository contains Hydra 0.1.8. It should not be considered meaningfully e
 
 ### Code
 
-2020-05-09 - Fixed CVE-2019-17502, ref: [PR#1](https://github.com/shrugly/hydra-0.1.8/pull/1)
+2020-05-09 - Fixed CVE-2019-17502, ref: [PR#1](https://github.com/shrugly/hydra-0.1.8/pull/1); clang-formatted messy source files, ref: [PR#2](https://github.com/shrugly/hydra-0.1.8/pull/2).
 
 ### Integrations
 

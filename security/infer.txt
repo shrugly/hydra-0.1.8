@@ -2,227 +2,227 @@ Found 28 issues
 
 src/index.c:64: error: UNINITIALIZED_VALUE
   The value read from new was never initialized.
-  62.       }
+  62.     }
   63.   
-  64. >     if (new) {
-  65.           DIE("Directory index table is full. Increase DIRECTORY_INDEX_TABLE_SIZE");
-  66.       }
+  64. >   if (new) {
+  65.       DIE("Directory index table is full. Increase DIRECTORY_INDEX_TABLE_SIZE");
+  66.     }
 
 src/escape.c:73: error: UNINITIALIZED_VALUE
   The value read from special[_] was never initialized.
-  71.       memset(_needs_escape, ~0, sizeof(_needs_escape));
-  72.       for(i = 0; i < sizeof(special) - 1; ++i) {
-  73. >         j=special[i];
-  74.           if (j>=NEEDS_ESCAPE_BITS) {
-  75.               /* warning: character $j will be needlessly escaped. */
+  71.     memset(_needs_escape, ~0, sizeof(_needs_escape));
+  72.     for (i = 0; i < sizeof(special) - 1; ++i) {
+  73. >     j = special[i];
+  74.       if (j >= NEEDS_ESCAPE_BITS) {
+  75.         /* warning: character $j will be needlessly escaped. */
 
-src/sublog.c:95: error: RESOURCE_LEAK
-  resource acquired to `return` by call to `socket()` at line 91, column 10 is not released after line 95, column 9.
-  93.           return fd;
-  94.       if (connect(fd, (struct sockaddr *) &sa, sizeof (sa)) < 0)
-  95. >         return -1;
-  96.       return fd;
-  97.   }
+src/sublog.c:93: error: RESOURCE_LEAK
+  resource acquired to `return` by call to `socket()` at line 89, column 8 is not released after line 93, column 5.
+  91.       return fd;
+  92.     if (connect(fd, (struct sockaddr *)&sa, sizeof(sa)) < 0)
+  93. >     return -1;
+  94.     return fd;
+  95.   }
 
-src/util.c:120: error: NULL_DEREFERENCE
-  pointer `t` last assigned on line 102 could be null and is dereferenced at line 120, column 8.
-  118.      *p-- = ' ';
-  119.   
-  120. >    a = t->tm_sec;
-  121.      *p-- = '0' + a % 10;
-  122.      *p-- = '0' + a / 10;
+src/util.c:97: error: NULL_DEREFERENCE
+  pointer `t` last assigned on line 96 could be null and is dereferenced at line 97, column 19.
+  95.     if (use_localtime) {
+  96.       t = localtime(&current_time);
+  97. >     time_offset = TIMEZONE_OFFSET(t);
+  98.     } else {
+  99.       t = gmtime(&current_time);
 
-src/util.c:100: error: NULL_DEREFERENCE
-  pointer `t` last assigned on line 99 could be null and is dereferenced at line 100, column 21.
-  98.      if (use_localtime) {
-  99.         t = localtime(&current_time);
-  100. >       time_offset = TIMEZONE_OFFSET(t);
-  101.      } else {
-  102.         t = gmtime(&current_time);
+src/util.c:117: error: NULL_DEREFERENCE
+  pointer `t` last assigned on line 99 could be null and is dereferenced at line 117, column 7.
+  115.     *p-- = ' ';
+  116.   
+  117. >   a = t->tm_sec;
+  118.     *p-- = '0' + a % 10;
+  119.     *p-- = '0' + a / 10;
 
-src/ip.c:106: error: DEAD_STORE
+src/ip.c:102: error: DEAD_STORE
   The value written to &p (type int) is never used.
-  104.   int net_port(struct SOCKADDR *s)
-  105.   {
-  106. >     int p = -1;
-  107.   #ifdef INET6
-  108.       char serv[NI_MAXSERV];
+  100.   
+  101.   int net_port(struct SOCKADDR *s) {
+  102. >   int p = -1;
+  103.   #ifdef INET6
+  104.     char serv[NI_MAXSERV];
 
-src/index_dir.c:158: error: DEAD_STORE
+src/index_dir.c:151: error: DEAD_STORE
   The value written to &the_error (type char*) is never used.
-  156.           break;
-  157.       case 4:
-  158. >         the_error = "There was an error escaping a string.";
-  159.       case 5:
-  160.           the_error = "Too many arguments were passed to the indexer.";
+  149.       break;
+  150.     case 4:
+  151. >     the_error = "There was an error escaping a string.";
+  152.     case 5:
+  153.       the_error = "Too many arguments were passed to the indexer.";
 
-src/util.c:161: error: DEAD_STORE
+src/util.c:157: error: DEAD_STORE
   The value written to &monthname (type char*) is never used.
-  159.      switch (*monthname) {
-  160.      case 'A':
-  161. >       return (*++monthname == 'p' ? 3 : 7);
-  162.      case 'D':
-  163.         return (11);
+  155.     switch (*monthname) {
+  156.     case 'A':
+  157. >     return (*++monthname == 'p' ? 3 : 7);
+  158.     case 'D':
+  159.       return (11);
 
-src/util.c:169: error: DEAD_STORE
+src/util.c:165: error: DEAD_STORE
   The value written to &monthname (type char*) is never used.
-  167.         if (*++monthname == 'a')
-  168.   	 return (0);
-  169. >       return (*++monthname == 'n' ? 5 : 6);
-  170.      case 'M':
-  171.         return (*(monthname + 2) == 'r' ? 2 : 4);
+  163.       if (*++monthname == 'a')
+  164.         return (0);
+  165. >     return (*++monthname == 'n' ? 5 : 6);
+  166.     case 'M':
+  167.       return (*(monthname + 2) == 'r' ? 2 : 4);
 
-src/index_dir.c:291: error: DEAD_STORE
+src/index_dir.c:284: error: DEAD_STORE
   The value written to &len (type int) is never used.
-  289.           }
-  290.   
-  291. >         len = strlen(http_filename);
-  292.   #ifndef HAVE_STAT64
-  293.           printf("<tr>"
+  282.       }
+  283.   
+  284. >     len = strlen(http_filename);
+  285.   #ifndef HAVE_STAT64
+  286.       printf("<tr>"
 
 src/mmap_cache.c:251: error: RESOURCE_LEAK
-  resource acquired to `return` by call to `open()` at line 241, column 14 is not released after line 251, column 7.
-  249.         fprintf(stderr, "%s is a directory\n", fname);
+  resource acquired to `return` by call to `open()` at line 241, column 13 is not released after line 251, column 5.
+  249.       fprintf(stderr, "%s is a directory\n", fname);
   250.   #endif
-  251. >       return NULL;
-  252.      }
+  251. >     return NULL;
+  252.     }
   253.   
 
-src/signals.c:287: error: DEAD_STORE
+src/signals.c:271: error: DEAD_STORE
   The value written to &set (type int) is never used.
-  285.   void sighup(int dummy)
-  286.   {
-  287. >    SET_LOCAL_PTH_SIGFLAG(sighup_flag, 1);
-  288.   }
-  289.   
+  269.   }
+  270.   
+  271. > void sighup(int dummy) { SET_LOCAL_PTH_SIGFLAG(sighup_flag, 1); }
+  272.   
+  273.   void sighup_run() {
 
-src/signals.c:298: error: DEAD_STORE
+src/signals.c:280: error: DEAD_STORE
   The value written to &set (type int) is never used.
-  296.       */
-  297.   
-  298. >    SET_LOCAL_PTH_SIGFLAG(sighup_flag, 0);
-  299.   
-  300.   
+  278.      */
+  279.   
+  280. >   SET_LOCAL_PTH_SIGFLAG(sighup_flag, 0);
+  281.   
+  282.   #ifdef ENABLE_SMP
 
-src/util.c:308: error: DEAD_STORE
+src/cgi.c:344: error: MEMORY_LEAK
+  memory dynamically allocated by call to `strdup()` at line 340, column 9 is not reachable after line 344, column 21.
+  342.         WARN("unable to strdup 'q' in create_argv!");
+  343.       }
+  344. >     for (aargc = 1; q && (aargc < CGI_ARGC_MAX);) {
+  345.         r = q;
+  346.         /* for an index-style CGI, + is used to seperate arguments
+
+src/cgi.c:355: error: MEMORY_LEAK
+  memory dynamically allocated by call to `strdup()` at line 340, column 9 is not reachable after line 355, column 11.
+  353.           q = NULL;
+  354.         }
+  355. >       if (unescape_uri(r, NULL)) {
+  356.           /* printf("parameter %d: %s\n",aargc,r); */
+  357.           aargv[aargc++] = r;
+
+src/util.c:303: error: DEAD_STORE
   The value written to &uri_old (type char*) is never used.
-  306.         } else if (c == '?') {	/* query string */
-  307.   	 if (query_string)
-  308. > 	    *query_string = ++uri_old;
-  309.   	 /* stop here */
-  310.   	 *uri = '\0';
+  301.       } else if (c == '?') { /* query string */
+  302.         if (query_string)
+  303. >         *query_string = ++uri_old;
+  304.         /* stop here */
+  305.         *uri = '\0';
 
-src/util.c:320: error: DEAD_STORE
+src/util.c:315: error: DEAD_STORE
   The value written to &uri_old (type char*) is never used.
-  318.   	    while ((c = *uri_old)) {
-  319.   	       if (c == '?') {
-  320. > 		  *query_string = ++uri_old;
-  321.   		  break;
-  322.   	       }
+  313.           while ((c = *uri_old)) {
+  314.             if (c == '?') {
+  315. >             *query_string = ++uri_old;
+  316.               break;
+  317.             }
 
-src/cgi.c:356: error: MEMORY_LEAK
-  memory dynamically allocated by call to `strdup()` at line 352, column 11 is not reachable after line 356, column 23.
-  354.   	 WARN("unable to strdup 'q' in create_argv!");
-  355.         }
-  356. >       for (aargc = 1; q && (aargc < CGI_ARGC_MAX);) {
-  357.   	 r = q;
-  358.   	 /* for an index-style CGI, + is used to seperate arguments
+src/index_dir.c:352: error: MEMORY_LEAK
+  memory dynamically allocated by call to `strdup()` at line 343, column 9 is not reachable after line 352, column 3.
+  350.            now, TIMEZONE(timeptr));
+  351.   #else
+  352. >   printf("</table>\n<hr noshade>\nIndex generated %s UTC\n"
+  353.            "<!-- This program is part of the Boa Webserver Copyright (C) "
+  354.            "1991-2002 http://www.boa.org -->\n"
 
-src/cgi.c:367: error: MEMORY_LEAK
-  memory dynamically allocated by call to `strdup()` at line 352, column 11 is not reachable after line 367, column 7.
-  365.   	    q = NULL;
-  366.   	 }
-  367. > 	 if (unescape_uri(r, NULL)) {
-  368.   	    /* printf("parameter %d: %s\n",aargc,r); */
-  369.   	    aargv[aargc++] = r;
+src/index_dir.c:344: error: NULL_DEREFERENCE
+  pointer `now` last assigned on line 343 could be null and is dereferenced by call to `strlen()` at line 344, column 7.
+  342.   #endif
+  343.     now = strdup(asctime(timeptr));
+  344. >   now[strlen(now) - 1] = '\0';
+  345.   #ifdef USE_LOCALTIME
+  346.     printf("</table>\n<hr noshade>\nIndex generated %s %s\n"
 
-src/index_dir.c:358: error: MEMORY_LEAK
-  memory dynamically allocated by call to `strdup()` at line 351, column 11 is not reachable after line 358, column 5.
-  356.              "</body>\n</html>\n", now, TIMEZONE(timeptr));
-  357.   #else
-  358. >     printf("</table>\n<hr noshade>\nIndex generated %s UTC\n"
-  359.              "<!-- This program is part of the Boa Webserver Copyright (C) 1991-2002 http://www.boa.org -->\n"
-  360.              "</body>\n</html>\n", now);
+src/boa.c:365: error: RESOURCE_LEAK
+  resource acquired by call to `socket()` at line 335, column 21 is not released after line 365, column 3.
+  363.       DIE("unable to listen");
+  364.     }
+  365. >   return server_s;
+  366.   }
+  367.   
 
-src/index_dir.c:352: error: NULL_DEREFERENCE
-  pointer `now` last assigned on line 351 could be null and is dereferenced by call to `strlen()` at line 352, column 9.
-  350.   #endif
-  351.       now = strdup(asctime(timeptr));
-  352. >     now[strlen(now) - 1] = '\0';
-  353.   #ifdef USE_LOCALTIME
-  354.       printf("</table>\n<hr noshade>\nIndex generated %s %s\n"
+src/util.c:353: error: NULL_DEREFERENCE
+  pointer `t` last assigned on line 344 could be null and is dereferenced at line 353, column 7.
+  351.     memcpy(p--, " GMT", 4);
+  352.   
+  353. >   a = t->tm_sec;
+  354.     *p-- = '0' + a % 10;
+  355.     *p-- = '0' + a / 10;
 
-src/boa.c:374: error: RESOURCE_LEAK
-  resource acquired by call to `socket()` at line 343, column 22 is not released after line 374, column 4.
-  372.         DIE("unable to listen");
-  373.      }
-  374. >    return server_s;
-  375.   }
-  376.   
-
-src/util.c:359: error: NULL_DEREFERENCE
-  pointer `t` last assigned on line 350 could be null and is dereferenced at line 359, column 8.
-  357.      memcpy(p--, " GMT", 4);
-  358.   
-  359. >    a = t->tm_sec;
-  360.      *p-- = '0' + a % 10;
-  361.      *p-- = '0' + a / 10;
-
-src/signals.c:378: error: DEAD_STORE
+src/signals.c:354: error: DEAD_STORE
   The value written to &set (type int) is never used.
-  376.   void sigchld(int dummy)
-  377.   {
-  378. >    SET_LOCAL_PTH_SIGFLAG(sigchld_flag, 1);
-  379.   }
-  380.   
+  352.   }
+  353.   
+  354. > void sigchld(int dummy) { SET_LOCAL_PTH_SIGFLAG(sigchld_flag, 1); }
+  355.   
+  356.   void sigchld_run(void) {
 
-src/signals.c:386: error: DEAD_STORE
+src/signals.c:360: error: DEAD_STORE
   The value written to &set (type int) is never used.
-  384.      pid_t pid;
-  385.   
-  386. >    SET_LOCAL_PTH_SIGFLAG(sigchld_flag, 0);
-  387.   
-  388.      while ((pid = waitpid(-1, &status, WNOHANG)) > 0)
+  358.     pid_t pid;
+  359.   
+  360. >   SET_LOCAL_PTH_SIGFLAG(sigchld_flag, 0);
+  361.   
+  362.     while ((pid = waitpid(-1, &status, WNOHANG)) > 0)
 
-src/cgi.c:481: error: DEAD_STORE
+src/cgi.c:464: error: DEAD_STORE
   The value written to &c (type char*) is never used.
-  479.   	    }
-  480.   
-  481. >             req->pathname = ++c;
-  482.               l = strlen(req->pathname) + 3;
-  483.               /* prefix './' */
+  462.         }
+  463.   
+  464. >       req->pathname = ++c;
+  465.         l = strlen(req->pathname) + 3;
+  466.         /* prefix './' */
 
-src/get.c:534: error: MEMORY_LEAK
-  memory dynamically allocated by call to `realloc()` at line 521, column 19 is not reachable after line 534, column 9.
-  532.   	    close(data_fd);	/* we don't need it */
-  533.   	    if (ret == -1) {
-  534. > 	       send_r_not_found(req);
-  535.   	       return -1;
-  536.   	    }
+src/get.c:516: error: MEMORY_LEAK
+  memory dynamically allocated by call to `realloc()` at line 503, column 23 is not reachable after line 516, column 11.
+  514.           close(data_fd); /* we don't need it */
+  515.           if (ret == -1) {
+  516. >           send_r_not_found(req);
+  517.             return -1;
+  518.           }
 
-src/get.c:537: error: MEMORY_LEAK
-  memory dynamically allocated by call to `realloc()` at line 521, column 19 is not reachable after line 537, column 13.
-  535.   	       return -1;
-  536.   	    }
-  537. > 	    return init_cgi(req);
-  538.   	 }
-  539.   
+src/get.c:519: error: MEMORY_LEAK
+  memory dynamically allocated by call to `realloc()` at line 503, column 23 is not reachable after line 519, column 16.
+  517.             return -1;
+  518.           }
+  519. >         return init_cgi(req);
+  520.         }
+  521.   
 
-src/request.c:774: error: MEMORY_LEAK
-  memory dynamically allocated by call to `strdup()` at line 763, column 27 is not reachable after line 774, column 7.
-  772.   
-  773.      if (req->request_uri[0] != '/') {
-  774. >       send_r_bad_request(req);
-  775.         return 0;
-  776.      }
+src/request.c:765: error: MEMORY_LEAK
+  memory dynamically allocated by call to `strdup()` at line 754, column 25 is not reachable after line 765, column 5.
+  763.   
+  764.     if (req->request_uri[0] != '/') {
+  765. >     send_r_bad_request(req);
+  766.       return 0;
+  767.     }
 
-src/request.c:778: error: MEMORY_LEAK
-  memory dynamically allocated by call to `strdup()` at line 763, column 27 is not reachable after line 778, column 8.
-  776.      }
-  777.   
-  778. >    if (translate_uri(req) == 0) {	/* unescape, parse uri */
-  779.         SQUASH_KA(req);
-  780.         return 0;			/* failure, close down */
+src/request.c:769: error: MEMORY_LEAK
+  memory dynamically allocated by call to `strdup()` at line 754, column 25 is not reachable after line 769, column 7.
+  767.     }
+  768.   
+  769. >   if (translate_uri(req) == 0) { /* unescape, parse uri */
+  770.       SQUASH_KA(req);
+  771.       return 0; /* failure, close down */
 
 Summary of the reports
 
