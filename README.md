@@ -12,7 +12,7 @@
 
 ## Changes
 
-This repository contains Hydra 0.1.8. It should not be considered meaningfully enhanced from the original source.
+This repository contains Hydra 0.1.8. It has been reformatted, and some minor functional changes have been made to the source to resolve a known vulnerability.
 
 ### Code
 
