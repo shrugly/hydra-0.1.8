@@ -4,32 +4,13 @@
 
 ## Changes
 
-This repository contains Hydra 0.1.8 with minimal changes as of 2020-05-08. It should not be considered meaningfully enhanced from the original source. However, it does contain some integrations and output from tools to help identify security hotspots and bad practices.
-
-### Code
-
-2020-05-09 - Mirrored tarball of idlookup-1.2 from Peter Eriksson to `extras/`, required by `examples/cgi-test.cgi` and `examples/nph-test.cgi`
-2020-05-08 - Fixed preprocessing token error in `src/compat.h`, which was preventing compilation.
-
-### Integrations
-
-- [LGTM](https://lgtm.com/) - performs QL-based quality and security checks on the main repository as well as any PRs to help identify & track security hotspots.
-- [Travis CI](https://travis-ci.org/) - builds Boa on Linux and macOS with GCC & Clang to ensure that changes don't immediately introduce quality issues.
-
-### security/*.txt
-
-Some SAST tools are run manually on the latest version of this software to identify potential hotspots. Listed in increasing order of complexity, they are:
-* [flawfinder](https://dwheeler.com/flawfinder/) - scans for potentially insecure functions being used in C programs.
-* [cppcheck](http://cppcheck.sourceforge.net/) - performs flow sensitive analysis to check C/C++ code for undefined behavior.
-* [infer](https://fbinfer.com/) - a modular verification and analysis engine that checks Java/C/Obj-C code for null pointer dereferences and resource or memory leaks.
-
-Summary 2020-05-08: Boa does not conform to modern, secure coding practices - which is expected - and has a number of potentially severe issues to investigate.
+This repository contains Hydra 0.1.8. It should not be considered meaningfully enhanced from the original source.
 
 ## SHRuG Creed
 
 We apply security tools & processes to assist developers in determining if legacy software is the right choice for their application. Where reasonable we will attempt to upgrade the security, reliability, and quality of legacy software.
 
-However, we are not volunteering to be new maintainers for this software. We will not develop new features or substantially change its functionality. Please report bugs that result in security problems to us using the [Issues](https://github.com/shrugly/boa-0.94.13/issues) tab and we will look into fixing them. Other bugs, feature requests, usability issues, etc. will be largely ignored or closed without warning.
+However, we are not volunteering to be new maintainers for this software. We will not develop new features or substantially change its functionality. Please report bugs that result in security problems to us using the [Issues](https://github.com/shrugly/hydra-0.1.8/issues) tab and we will look into fixing them. Other bugs, feature requests, usability issues, etc. will be largely ignored or closed without warning.
 
 ### Warranty & Liability
 
